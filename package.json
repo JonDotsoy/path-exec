@@ -7,7 +7,9 @@
     "node": ">= 6.2.0"
   },
   "scripts": {},
-  "keywords": [],
+  "keywords": [
+    "routing", "route", "regexp"
+  ],
   "author": "Jonathan Delgado <hi@jon.soy> (http://jon.soy/)",
   "license": "MIT",
   "dependencies": {
