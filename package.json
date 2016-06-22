@@ -1,6 +1,6 @@
 {
   "name": "path-exec",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A simple route control to execute actions.",
   "main": "index.js",
   "engine": {
@@ -11,8 +11,8 @@
   "author": "Jonathan Delgado <hi@jon.soy> (http://jon.soy/)",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.0.0-rc.6",
-    "path-to-regexp": "^1.5.3"
+    "async": "2.0.0-rc.6",
+    "path-to-regexp": "1.5.3"
   },
   "devDependencies": {},
   "repository": {
