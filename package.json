@@ -1,13 +1,15 @@
 {
   "name": "path-exec",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple route control to execute actions.",
   "main": "index.js",
   "engine": {
     "node": ">= 6.2.0"
   },
   "scripts": {},
-  "keywords": [],
+  "keywords": [
+    "routing", "route", "regexp"
+  ],
   "author": "Jonathan Delgado <hi@jon.soy> (http://jon.soy/)",
   "license": "MIT",
   "dependencies": {
