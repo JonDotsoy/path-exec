@@ -90,11 +90,4 @@ class PathExec {
 	}
 }
 
-let PE = new PathExec
-PE.use( '/:name/:sd', [ 'name', 'secondName' ], function( params ) {
-	console.log( params )
-} )
-
-PE.exec( "/asd/asd" )
-
 module.exports = PathExec
