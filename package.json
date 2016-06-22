@@ -1,0 +1,26 @@
+{
+  "name": "path-exec",
+  "version": "0.1.0",
+  "description": "A simple route control to execute actions.",
+  "main": "index.js",
+  "engine": {
+    "node": ">= 6.2.0"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "Jonathan Delgado <hi@jon.soy> (http://jon.soy/)",
+  "license": "MIT",
+  "dependencies": {
+    "async": "2.0.0-rc.6",
+    "path-to-regexp": "1.5.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonDotsoy/path-exec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JonDotsoy/path-exec/issues"
+  },
+  "homepage": "https://github.com/JonDotsoy/path-exec#readme"
+}
