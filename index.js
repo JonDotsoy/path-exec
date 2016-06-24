@@ -12,16 +12,32 @@ class Params {
 	}
 }
 
+/**
+ * Name associated with associated paths in the Path class Exec.
+ * 
+ * @type {Symbol}
+ */
+const pathNameSymbol = Symbol( 'paths' )
+
 class PathExec {
 	constructor() {
-		this.paths = new Set()
+		this[ pathNameSymbol ] = new Set()
 	}
 
+	/**
+	 * Define un uso para el path definido.
+	 * 
+	 * @param  {String|RegExp} path     Path used to find and run the executions
+	 *                                  defined.
+	 * @param  {Array}         [keys]   Keywords to rename the parameters found.
+	 * @param  {Function}      [exec]   Execution load to find matches in
+	 *                                  `Path.exec()`.
+	 */
 	use( path, keys = [], exec = null ) {
 		if ( exec == null ) {
 			return this.exec( path )
 		} else {
-			this.paths.add( {
+			this[ pathNameSymbol ].add( {
 				'regexp': pathToRegexp( path, keys ),
 				exec,
 			} )
@@ -30,7 +46,7 @@ class PathExec {
 
 	* filter( pathToEvaluation ) {
 		let collectionOut = new Set
-		this.paths.forEach( function( pathEvaluation ) {
+		this[ pathNameSymbol ].forEach( function( pathEvaluation ) {
 			let resEvaluation
 			if ( resEvaluation = pathEvaluation.regexp.exec( pathToEvaluation ) ) {
 				collectionOut.add( {
