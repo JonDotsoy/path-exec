@@ -67,7 +67,7 @@ class PathExec {
 	exec( path ) {
 		return new Promise( ( resolve, reject ) => {
 			let clt = this.filter( path )
-			let tasks = []
+			let tasks = new Set()
 
 			while ( true ) {
 				let c = clt.next()
@@ -76,18 +76,22 @@ class PathExec {
 					break
 				} else {
 					if ( typeof c.value.exec == "function" ) {
-						tasks.push( function( next ) {
+						tasks.add( function( next ) {
 							if ( c.value.exec.length >= 2 ) {
+								// With Callback defined
 								c.value.exec( c.value.evaluation, () => next() )
 							} else {
 								let b
 								try {
+									// Run execution.
 									b = c.value.exec( c.value.evaluation )
 									if ( b instanceof Promise ) {
+										// With Promise return
 										b
 											.then( () => next() )
 											.catch( err => next( err ) )
 									} else {
+										// Is a sync execution
 										next()
 									}
 								} catch ( ex ) {
@@ -101,7 +105,7 @@ class PathExec {
 				}
 			}
 
-			series( tasks, ( err ) => {
+			series( [ ...tasks ], ( err ) => {
 				if ( err ) {
 					reject( err )
 				} else {
