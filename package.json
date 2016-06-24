@@ -6,9 +6,13 @@
   "engine": {
     "node": ">= 6.2.0"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
   "keywords": [
-    "routing", "route", "regexp"
+    "routing",
+    "route",
+    "regexp"
   ],
   "author": "Jonathan Delgado <hi@jon.soy> (http://jon.soy/)",
   "license": "MIT",
@@ -16,7 +20,9 @@
     "async": "2.0.0-rc.6",
     "path-to-regexp": "1.5.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JonDotsoy/path-exec.git"

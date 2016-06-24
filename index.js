@@ -33,15 +33,13 @@ class PathExec {
 	 * @param  {Function}      [exec]   Execution load to find matches in
 	 *                                  `Path.exec()`.
 	 */
-	use( path, keys = [], exec = null ) {
-		if ( exec == null ) {
-			return this.exec( path )
-		} else {
-			this[ pathNameSymbol ].add( {
-				'regexp': pathToRegexp( path, keys ),
-				exec,
-			} )
-		}
+	use( path, keys = [], ...execs ) {
+		this[ pathNameSymbol ].add( {
+			'regexp': pathToRegexp( path, keys ),
+			execs,
+		} )
+
+		return this
 	}
 
 	/**
@@ -54,10 +52,13 @@ class PathExec {
 		this[ pathNameSymbol ].forEach( function( pathEvaluation ) {
 			let resEvaluation
 			if ( resEvaluation = pathEvaluation.regexp.exec( pathToEvaluation ) ) {
-				collectionOut.add( {
-					evaluation: new Params( resEvaluation, pathEvaluation.regexp.keys ),
-					exec: pathEvaluation.exec
-				} )
+				let params = new Params( resEvaluation, pathEvaluation.regexp.keys )
+				for ( const exec of pathEvaluation.execs ) {
+					collectionOut.add( {
+						evaluation: params,
+						exec,
+					} )
+				}
 			}
 		} )
 		yield * collectionOut
@@ -120,5 +121,7 @@ class PathExec {
 		} )
 	}
 }
+
+PathExec.Params = Params
 
 module.exports = PathExec
