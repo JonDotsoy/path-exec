@@ -44,6 +44,11 @@ class PathExec {
 		}
 	}
 
+	/**
+	 * Filter paths with executions defined
+	 *
+	 * @param {String} pathToEvaluation Value is evaluatio if is ready to executed.
+	 */
 	* filter( pathToEvaluation ) {
 		let collectionOut = new Set
 		this[ pathNameSymbol ].forEach( function( pathEvaluation ) {
