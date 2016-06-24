@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Changed
+ - Enable multiple Executions (`paths.use( path, [...keyNames], ...execs )`)
+
+### Added
+ - Test
+
 ## 0.1.1 ― 2016-06-22
 ### Fixed
  - Remove inline test actions
