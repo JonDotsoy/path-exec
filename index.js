@@ -58,6 +58,12 @@ class PathExec {
 		yield * collectionOut
 	}
 
+	/**
+	 * Find the rules associated to execute defined Executions.
+	 * 
+	 * @param  {String} path
+	 * @return {Promise}
+	 */
 	exec( path ) {
 		return new Promise( ( resolve, reject ) => {
 			let clt = this.filter( path )
