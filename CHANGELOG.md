@@ -2,14 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.1.2] ― 2016-06-24
 ### Changed
  - Enable multiple Executions (`paths.use( path, [...keyNames], ...execs )`)
 
 ### Added
  - Test
 
-## 0.1.1 ― 2016-06-22
+## [0.1.1] ― 2016-06-22
 ### Fixed
  - Remove inline test actions
 
@@ -21,4 +21,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
  - `path.use` function
  - `path.exec` function
 
-
+[Unreleased]: https://github.com/JonDotsoy/path-exec/compare/v0.1.2...develop
+[0.1.2]: https://github.com/JonDotsoy/path-exec/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/JonDotsoy/path-exec/compare/v0.1.0...v0.1.1
