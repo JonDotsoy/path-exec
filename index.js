@@ -70,7 +70,7 @@ class PathExec {
 	 * @param  {String} path
 	 * @return {Promise}
 	 */
-	exec( path ) {
+	exec( path, ...customParams ) {
 		return new Promise( ( resolve, reject ) => {
 			let clt = this.filter( path )
 			let tasks = new Set()
@@ -83,14 +83,14 @@ class PathExec {
 				} else {
 					if ( typeof c.value.exec == "function" ) {
 						tasks.add( function( next ) {
-							if ( c.value.exec.length >= 2 ) {
+							if ( c.value.exec.length >= (customParams.length + 2) ) {
 								// With Callback defined
-								c.value.exec( c.value.evaluation, () => next() )
+								c.value.exec( c.value.evaluation, ...customParams, () => next() )
 							} else {
 								let b
 								try {
 									// Run execution.
-									b = c.value.exec( c.value.evaluation )
+									b = c.value.exec( c.value.evaluation, ...customParams )
 									if ( b instanceof Promise ) {
 										// With Promise return
 										b
