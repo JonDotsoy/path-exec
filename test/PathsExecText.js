@@ -27,7 +27,7 @@ describe( 'PathsExec', function() {
 
 	} )
 
-	describe( 'Execute', function() {
+	describe( 'Executes', function() {
 
 		it( '/one/32', function( next ) {
 			paths.exec( '/one/32' )
@@ -49,6 +49,44 @@ describe( 'PathsExec', function() {
 					next( err )
 				} )
 		} )
+
+	} )
+
+	describe( 'Custom parameters', function () {
+		let paths
+
+		before(function () {
+			paths = new PathsExec()
+		})
+
+		describe('use one paremeter', function () {
+			before(function () {
+				paths.use('one/custom/parameter', function (params, one, done) {
+					expect(one).to.be(3)
+					done()
+				})
+			})
+			it('run one parameter', function (done) {
+				paths.exec('one/custom/parameter', 3)
+				.then(() => done())
+				.catch(err => done(err))
+			})
+		})
+
+		describe('use two parameters', function () {
+			before(function () {
+				paths.use('two/custom/parameters', function (params, one, two, done) {
+					expect(one).to.be(5)
+					expect(two).to.be(9)
+					done()
+				})
+			})
+			it('run two parameters', function (done) {
+				paths.exec('two/custom/parameters', 5, 9)
+				.then(() => done())
+				.catch(err => done(err))
+			})
+		})
 
 	} )
 
