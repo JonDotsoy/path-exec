@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.1.3] ― 2016-07-01
+### Added
+- Custom parameters: `paths.exec('/one/path', param1, param2, ...params)` ← `paths.use('/one/path', [], (param1, param2, ...params, done) => done())`
+
 ## [0.1.2] ― 2016-06-24
 ### Changed
  - Enable multiple Executions (`paths.use( path, [...keyNames], ...execs )`)
