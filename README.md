@@ -42,6 +42,28 @@ paths
 })
 ```
 
+### Customize parameters
+Defined with path value.
+
+```javascript
+// Use
+paths
+.use('/say/:action', ['action'], function (params, valued, next) {
+    console.log(`Is Say ${params.action} with ${valued}`)
+
+    next()
+})
+```
+
+```javascript
+// Execut
+paths
+.exec('/say/hello', 34)
+.then(function () {
+    console.log('is ok') // § ~ . ・§
+})
+```
+
 # Change Logs
 Please see the changelog on [CHANGELOG.md][]
 
